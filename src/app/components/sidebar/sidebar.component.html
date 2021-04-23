@@ -1,0 +1,23 @@
+<aside class="container d-flex flex-column ">
+
+    <div class="card bg-light">
+        <div class="card-body text-center">
+            <h2 class="card-title">Create Article!</h2>
+            <hr>
+            <a href="#" class="btn btn-success">New Article</a>
+        </div>
+    </div>
+
+    <div class="card mt-4 bg-light">
+        <div class="card-body text-center">
+            <h2 class="card-title">Search</h2>
+            <hr>
+            <p class="card-text">Find your article</p>
+            <form autocomplete="off" (ngSubmit)="goSearch()">
+                <input type="text" name="search" [(ngModel)]="searchString" />
+                <br>
+                <button type="submit" class="btn btn-primary mt-3" [disabled]="!searchString">Search</button>
+            </form>
+        </div>
+    </div>
+</aside>

@@ -1,0 +1,29 @@
+
+<div class="container-xxl">
+    <div class="row mt-4">
+        <div class="col-9 ps-5" *ngIf="article">
+
+            <div id="articleImg" class="row mb-4" style="background-image: url({{imgUrl}});">   
+            </div>
+
+            <h1>{{article.title}}</h1>
+
+            <span class="fs-6 text-muted">
+                {{article.date | amLocale: 'en' | amTimeAgo}}
+            </span>
+
+            <p class="mt-4">
+                {{article.content}}
+            </p>
+
+            <a href="#" class="btn btn-warning btn-lg mt-3">Edit</a>
+            <br>
+            <a href="#" class="btn btn-danger btn-lg mt-3">Delete</a>
+
+        </div>
+
+        <div class="col-3">
+            <app-sidebar></app-sidebar>
+        </div>
+    </div>
+</div>

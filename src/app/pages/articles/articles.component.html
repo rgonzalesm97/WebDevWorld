@@ -1,0 +1,30 @@
+<div class="loading" *ngIf="!articles">
+    Loading...
+</div>
+
+<div class="loading" *ngIf="articles && articles.length == 0">
+    <p>No articles to show. Try again later.</p>
+     
+</div>
+
+<div id="articles" *ngIf="articles">
+    <div class="card mb-3" style="max-width: 540px;" *ngFor="let article of articles">
+        <div class="row g-0">
+            <div class="col-md-4" style="overflow: hidden; height: 130px;">
+                <img src="{{baseUrl + 'get-image/' + article.image}}" alt="{{article.title}}" *ngIf="article.image" style="height: 100%; text-align: center;">
+                <img src="../../../assets/no-image.jpg" alt="{{article.title}}" *ngIf="!article.image" style="height: 100%; text-align: center;">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h3 class="card-title">{{article.title}}</h3>
+
+                    <p class="card-text"><small class="text-muted">{{article.date | amLocale: 'en' | amTimeAgo}}</small></p>
+
+                    <a [routerLink]="['/pages/blog/article/', article._id]" class="link-secondary">Read more</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+

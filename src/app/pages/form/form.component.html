@@ -1,0 +1,88 @@
+<app-slider [page]="'Form'"></app-slider>
+
+
+<div class="container-xxl">
+    <div class="row mt-4">
+        <div class="col-9">
+            <h1 class="text-center">Send your comments!</h1>
+            <hr>
+
+            <div class="row d-flex justify-content-center">
+                <form style="max-width: 500px;" #userForm="ngForm" (ngSubmit)="onSubmit()">
+    
+                    <div class="mb-3">
+                        <label for="firstName" class="form-label">First Name</label>
+                        <input type="text" name="firstName" #firstName="ngModel" [(ngModel)]="user.firstName"
+                            class="form-control" id="firstName" placeholder="John" required pattern="[a-zA-Z]+">
+    
+                        <span *ngIf="!firstName.valid && firstName.touched" style="color: red;">
+                            Invalid first name
+                        </span>
+                    </div>
+    
+                    <div class="mb-3">
+                        <label for="lastName" class="form-label">Last Name</label>
+                        <input type="text" name="LastName" #lastName="ngModel" [(ngModel)]="user.lastName"
+                            class="form-control" id="lastName" placeholder="Doe" required >
+    
+                        <span *ngIf="!lastName.valid && lastName.touched" style="color: red;">
+                            Invalid last name
+                        </span>
+                    </div>
+    
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email address</label>
+                        <input type="email" name="email" #email="ngModel" [(ngModel)]="user.email" class="form-control"
+                            id="email" placeholder="name@example.com" required [pattern]="emailPattern">
+    
+                        <span *ngIf="!email.valid && email.touched" style="color: red;">
+                            Invalid email
+                        </span>
+                    </div>
+    
+                    <div class="mb-3">
+                        <label for="comments" class="form-label">Your comments</label>
+                        <textarea class="form-control" name="comments" [(ngModel)]="user.comments" id="comments" rows="3"  pattern="[a-zA-Z]+"></textarea>
+                    </div>
+    
+                    <div class="mb-3">
+                        <div>
+                            <label for="gender" class="form-label">Gender: </label>
+                            
+                        </div>
+    
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" #gender="ngModel" [(ngModel)]="user.gender" id="inlineRadio1"
+                                value="M" required>
+                            <label class="form-check-label" for="inlineRadio1">Male</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" #gender="ngModel" [(ngModel)]="user.gender" id="inlineRadio2"
+                                value="F">
+                            <label class="form-check-label" for="inlineRadio2">Female</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" #gender="ngModel" [(ngModel)]="user.gender" id="inlineRadio3"
+                                value="O">
+                            <label class="form-check-label" for="inlineRadio3">Other</label>
+                        </div>
+    
+                        <span *ngIf="!gender.valid && gender.touched" style="color: red;">
+                            Please choose a gender
+                        </span>
+    
+                    </div>
+    
+                    <button type="submit" class="btn btn-primary" [disabled]="userForm.invalid" >Submit</button>
+    
+                </form>
+            </div>
+
+        </div>
+
+        <div class="col-3">
+            <app-sidebar></app-sidebar>
+        </div>
+    </div>
+    
+</div>

@@ -1,0 +1,18 @@
+<app-slider [page]="'Search: ' + search"></app-slider>
+
+
+<div class="container-xxl">
+    <div class="row mt-4">
+        <div class="col-9">
+            <h1 class="text-center">Found Articles</h1>
+            <hr>
+
+            <app-articles [articles]="articles"></app-articles>
+
+        </div>
+
+        <div class="col-3">
+            <app-sidebar></app-sidebar>
+        </div>
+    </div>
+</div>

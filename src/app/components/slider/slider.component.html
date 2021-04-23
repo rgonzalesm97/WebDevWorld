@@ -1,0 +1,24 @@
+<div class="container-fluid d-flex justify-content-around align-items-center" style="height: 400px;" *ngIf="page == 'home'; else noHome">
+
+    <button type="button" class="btn btn-primary" routerLink="/pages/blog">
+        Ir al Blog
+    </button>
+
+    <img src="../../../assets/webdev.gif" alt="logo" style="transform: scale(.8);">
+    
+    <button type="button" class="btn btn-primary" routerLink="/pages/blog">
+        Ir al Blog
+    </button>
+
+</div>
+
+<ng-template #noHome>
+    
+    <div class="container-fluid d-flex justify-content-around align-items-center" style="height: 200px;">
+    
+        <h1 style="color: white;">{{page}}</h1>
+    
+    </div>
+
+</ng-template>
+
