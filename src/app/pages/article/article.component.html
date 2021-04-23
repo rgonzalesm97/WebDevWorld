@@ -16,9 +16,9 @@
                 {{article.content}}
             </p>
 
-            <a href="#" class="btn btn-warning btn-lg mt-3">Edit</a>
+            <a routerLink="/pages/blog/updateArticle/{{article._id}}" class="btn btn-warning btn-lg mt-3">Edit</a>
             <br>
-            <a href="#" class="btn btn-danger btn-lg mt-3">Delete</a>
+            <a (click)="deleteArticle(article._id)" class="btn btn-danger btn-lg mt-3">Delete</a>
 
         </div>
 

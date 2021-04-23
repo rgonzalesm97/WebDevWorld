@@ -9,11 +9,11 @@ import { ArticleNewComponent } from './article-new/article-new.component';
 import { BlogComponent } from './blog/blog.component';
 import { ComponentsModule } from '../components/components.module';
 import { ArticlesComponent } from './articles/articles.component';
-import { BlogService } from '../services/blog.service';
 import { FormComponent } from './form/form.component';
 import { FormsModule } from '@angular/forms';
 import { MomentModule } from 'angular2-moment';
 import { SearchComponent } from './search/search.component';
+import { AngularFileUploaderModule } from "angular-file-uploader";
 
 
 @NgModule({
@@ -32,7 +32,8 @@ import { SearchComponent } from './search/search.component';
     PagesRoutingModule,
     ComponentsModule,
     FormsModule,
-    MomentModule
+    MomentModule,
+    AngularFileUploaderModule
   ]
 })
 export class PagesModule { }

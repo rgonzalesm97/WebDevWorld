@@ -33,4 +33,22 @@ export class BlogService {
   search(searchString: string):Observable<any>{
     return this._http.get(this.baseUrl + 'search/' + searchString);
   }
+
+  create(article: Article):Observable<any>{
+    let params = JSON.stringify(article);
+    let headers = new HttpHeaders().set('Content-Type', 'application/json');
+
+    return this._http.post(this.baseUrl + 'save', params, {headers: headers});
+  }
+
+  update(id: string, article: Article):Observable<any>{
+    let params = JSON.stringify(article);
+    let headers = new HttpHeaders().set('Content-Type', 'application/json');
+
+    return this._http.put(this.baseUrl + 'update/' + id, params, {headers: headers});
+  }
+
+  delete(id: string):Observable<any>{
+    return this._http.delete(this.baseUrl + 'delete/' + id);
+  }
 }

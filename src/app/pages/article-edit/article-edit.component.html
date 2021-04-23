@@ -1,1 +1,51 @@
-<p>article-edit works!</p>
+<div class="container-xxl">
+    <div class="row mt-4">
+        <div class="col-9">
+            <h1 class="text-center">Edit Article</h1>
+            <hr>
+
+            <div class="row d-flex justify-content-center">
+                <form style="max-width: 500px;" #articleForm="ngForm" (ngSubmit)="updateArticle()">
+    
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Title</label>
+                        <input type="text" name="title" #title="ngModel" [(ngModel)]="article.title"
+                            class="form-control" id="title" required>
+    
+                        <span *ngIf="!title.valid && title.touched" style="color: red;">
+                            Please enter a valid Title
+                        </span>
+                    </div>
+    
+                    <div class="mb-3">
+                        <label for="content" class="form-label">Content</label>
+                        <textarea class="form-control" name="content" #content="ngModel" [(ngModel)]="article.content" rows="3" required></textarea>
+                        <span *ngIf="!content.valid && content.touched" style="color: red;">
+                            Please enter a valid content
+                        </span>
+                    </div>
+
+                    <div class="col-md-4" >
+                        <img src="{{baseUrl + 'get-image/' + article.image}}" alt="{{article.title}}" *ngIf="article.image" style="width: 200px;">
+                        <img src="../../../assets/no-image.jpg" alt="{{article.title}}" *ngIf="!article.image" style="width: 200px;">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="image" class="form-label">Image</label>
+                        <angular-file-uploader [config]="afuConfig" (ApiResponse)="imageUpload($event)"></angular-file-uploader>
+                    </div>
+    
+                    <button type="submit" class="btn btn-primary" [disabled]="articleForm.invalid" >Submit</button>
+    
+                </form>
+            </div>
+
+        </div>
+
+        <div class="col-3">
+            <app-sidebar></app-sidebar>
+        </div>
+    </div>
+    
+</div>
+
