@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  url: "http://localhost:4000/api/article/"
+  url: "https://web-dev-world.herokuapp.com/api/article/"
 };
