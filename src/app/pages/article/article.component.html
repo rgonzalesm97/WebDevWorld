@@ -16,9 +16,9 @@
                 {{article.content}}
             </p>
 
-            <a routerLink="/pages/blog/updateArticle/{{article._id}}" class="btn btn-warning btn-lg mt-3">Edit</a>
+            <a *ngIf="user.name" routerLink="/pages/blog/updateArticle/{{article._id}}" class="btn btn-warning btn-lg mt-3" >Edit</a>
             <br>
-            <a (click)="deleteArticle(article._id)" class="btn btn-danger btn-lg mt-3">Delete</a>
+            <a *ngIf="user.name" (click)="deleteArticle(article._id)" class="btn btn-danger btn-lg mt-3">Delete</a>
 
         </div>
 

@@ -1,0 +1,20 @@
+<div class="authContainer container-fluid d-flex flex-column align-items-center justify-content-center">
+    <a class="btn btn-light" style="position: absolute; top: 0; left: 15px;" [routerLink]="['/pages/home']">Back</a>
+    <h1 style="color: white; margin-bottom: 20px;">Log In</h1>
+    <div class="divForm">
+
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+            <div class="mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="email" formControlName="email" aria-describedby="emailHelp" placeholder="Enter email">
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" formControlName="password" placeholder="Enter password">
+            </div>
+            <button type="submit" class="btn btn-warning" [disabled]="loginForm.invalid">Submit</button>
+        </form>
+
+    </div>
+    <a class="btn btn-light" [routerLink]="['/pages/register']">Go to Register</a>
+</div>

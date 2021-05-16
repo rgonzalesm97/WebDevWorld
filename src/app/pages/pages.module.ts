@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
 import { MomentModule } from 'angular2-moment';
 import { SearchComponent } from './search/search.component';
 import { AngularFileUploaderModule } from "angular-file-uploader";
+import { AuthModule } from '../auth/auth.module';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { AngularFileUploaderModule } from "angular-file-uploader";
     ComponentsModule,
     FormsModule,
     MomentModule,
-    AngularFileUploaderModule
+    AngularFileUploaderModule,
+    AuthModule
   ]
 })
 export class PagesModule { }

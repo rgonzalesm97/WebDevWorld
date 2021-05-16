@@ -7,6 +7,8 @@ import { ArticleComponent } from './article/article.component';
 import { SearchComponent } from './search/search.component';
 import { ArticleNewComponent } from './article-new/article-new.component';
 import { ArticleEditComponent } from './article-edit/article-edit.component';
+import { LoginComponent } from '../auth/login/login.component';
+import { RegisterComponent } from '../auth/register/register.component';
 
 const routes: Routes = [{
   path: '',
@@ -19,7 +21,8 @@ const routes: Routes = [{
     {path: 'blog/search/:search', component: SearchComponent},
     {path: 'form', component: FormComponent},
     {path: 'home', component: HomeComponent},
-
+    {path: 'login', component: LoginComponent},
+    {path: 'register', component: RegisterComponent},
 
     {path: '**', redirectTo: 'home'}
   ]

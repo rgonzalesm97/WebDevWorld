@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -14,7 +15,8 @@ export class SidebarComponent implements OnInit {
 
   constructor(
     private _router: Router,
-    private _route: ActivatedRoute
+    private _route: ActivatedRoute,
+    private authService: AuthService
   ) { }
 
   ngOnInit(): void  {
@@ -22,6 +24,17 @@ export class SidebarComponent implements OnInit {
 
   goSearch(){
     this._router.navigate(['/pages/blog/search', this.searchString]);
+  }
+
+  newArticle(){
+    this.authService.validateToke()
+      .subscribe(resp => {
+        if(resp === false){
+          this._router.navigateByUrl('/pages/login');
+        }else{
+          this._router.navigateByUrl('/pages/blog/newArticle');
+        }
+      })
   }
 
 }

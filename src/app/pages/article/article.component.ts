@@ -4,6 +4,7 @@ import { Article } from '../../models/article';
 import { Router, ActivatedRoute, Params } from "@angular/router";
 import { environment } from '../../../environments/environment.prod';
 import swal from 'sweetalert';
+import { AuthService } from '../../services/auth.service';
 
 
 @Component({
@@ -25,8 +26,13 @@ export class ArticleComponent implements OnInit {
   article!: Article;
   imgUrl!: string;
 
+  get user(){
+    return this.authService.user;
+  }
+
   constructor(
     private blogService: BlogService,
+    private authService: AuthService,
     private _route: ActivatedRoute,
     private _router: Router
   ) { }
